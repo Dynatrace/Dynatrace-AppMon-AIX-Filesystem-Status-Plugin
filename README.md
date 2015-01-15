@@ -4,4 +4,3 @@ The monitor gets the filesystem percent usage via the df -Plk command. The user 
 
 Find further information in the [dynaTrace community](https://community.compuwareapm.com/community/display/DL/AIX+Filesystem+Status+Plugin)     
 
-For downloads go to [releases](https://github.com/dynaTrace/Dynatrace-AIX-Filesystem-Status-Plugin/releases)

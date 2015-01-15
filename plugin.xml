@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+  <extension point="com.dynatrace.diagnostics.pdk.pluginconfig" id="com.dynatrace.diagnostics.plugins.AIXFilesystemStatusPlugin" name="AIX Filesystem Status Plugin">
+    <information>
+      <category value="" />
+      <description value="The AIX Filesystem Status Plugin returns the percent usage of the specified filesystem." />
+      <license value="dynaTraceBSD.txt" />
+      <supportlevel value="unsupported" />
+    </information>
+    <configuration>
+      <property key="Filesystem" label="Filesystem" type="string" description="Linux Filesystem name." default="" />
+      <property key="method" label="Method" type="string" description="Specify the type of Connection." default="SSH" />
+      <property key="authMethod" label="Authentication Method" type="string" description="Specify the type of SSH Authentication." default="Password" />
+      <property key="serverUsername" label="Username" type="string" description="The username that is used for authorization with the host." default="" />
+      <property key="serverPassword" label="Password" type="password" description="The password for the username." default="" />
+    </configuration>
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitor" id="com.dynatrace.diagnostics.plugins.AIXFilesystemStatusPlugin.monitor" name="AIX Filesystem Status Monitor">
+    <plugin configid="com.dynatrace.diagnostics.plugins.AIXFilesystemStatusPlugin" class="wp.WPMonitor" />
+  </extension>
+  <extension point="com.dynatrace.diagnostics.pdk.monitormetricgroup" id="com.dynatrace.diagnostics.plugins.AIXFilesystemStatusPlugin.metricgroup1" name="AIX Filesystem Status Monitor">
+    <metricgroup monitorid="com.dynatrace.diagnostics.plugins.AIXFilesystemStatusPlugin.monitor">
+      <metric name="PercentUsage" unit="number" description="Returns percentage usage of filesystem. " />
+    </metricgroup>
+  </extension>
+</plugin>
+
